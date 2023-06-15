@@ -25,11 +25,6 @@ const questions = [
     },
     {
         type: 'input',
-        message: 'Write your Table of Contents:',
-        name: 'ToC'
-    },
-    {
-        type: 'input',
         message: 'Write your Installation:',
         name: 'Installation'
     }
@@ -114,11 +109,21 @@ ${badge}
 
 # ${title}
 
-## description
+
+
+
+
+## Description
 ${description}
 
 ## Table of Contents
-${ToC}
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Contributing](#contributing)
+- [Tests](#Tests)
+- [Questions](#Questions)
 
 ## Installation
 ${Installation}
