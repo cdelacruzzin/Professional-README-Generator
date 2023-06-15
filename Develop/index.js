@@ -3,15 +3,16 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const { Readme } = require('./createREADME');
 
-
-
-// TODO: Create an array of questions for user input
-const questions = [
+const startConfirmation = [
     {
         type: 'confirm',
         message: 'Do you want to create a README file?',
         name: 'initialization'
-    },
+    }
+]
+
+// TODO: Create an array of questions for user input
+const questions = [
     {
         type: 'input',
         message: 'What is the title of the README?',
@@ -61,20 +62,20 @@ const questions = [
     }
 ];
 
+let exit = false; //this is a flag to track if the user exits or not.
 
-
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-
-}
-
-// TODO: Create a function to initialize app
+// TODO: Create a function to initialize app 
 function init() {
-    inquirer.prompt(questions).then((response) => {
+    inquirer.prompt(startConfirmation).then((response) => {
 
         if (response.initialization) {
-            const initialReadMe = new Readme('');
-            fs.writeFileSync("README.md", README(response))
+            fs.writeFileSync("README.md", README(response))     //creates a README file with undefined content. this is just a skeleton of the file contents
+            console.log('You have created a README.md');
+            console.log(response.initialization);
+            return response.initialization  //returns the value of the confirmation: true or false
+        } else {
+            console.log('You have chosen to create a README.md');
+            return Promise.resolve();   // ends the inquiry if user chooses 'no'
         }
     })
 }
