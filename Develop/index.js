@@ -23,15 +23,39 @@ function init() {
     inquirer.prompt(questions).then( (response) => {
 
         if(response.initialization) {
-            fs.writeFileSync("main.md", README())
+            fs.writeFileSync("README.md", README())
             console.log(response.initialization)
         }
 })
 }
 
 function README() {
-    return ` # title`
+    return `# title
+    
+## description
+description
 
+## Table of Contents
+Table of Contents
+
+## Installation
+Installation
+
+## Usage
+Usage
+
+## License
+License
+
+## Contributing
+Contributing
+
+## Tests
+Tests
+
+## Questions
+Questions
+`
 }
 // Function call to initialize app
 init();
