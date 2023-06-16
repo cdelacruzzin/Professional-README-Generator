@@ -1,7 +1,6 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
-const { Readme } = require('./createREADME');
 
 const startConfirmation = [
     {
@@ -59,6 +58,16 @@ const questions = [
     },
     {
         type: 'input',
+        message: 'Please provide the link of your GitHub:',
+        name: 'GitHub'
+    },
+    {
+        type: 'input',
+        message: 'Please provide your email:',
+        name: 'email'
+    },
+    {
+        type: 'input',
         message: 'Write your Questions:',
         name: 'Questions'
     }
@@ -100,18 +109,14 @@ function licenseBadge(License) {
     }
 }
 
-function README({ title, description, ToC, Installation, Usage, License, Contributing, Tests, Questions }) {
+function README({ title, description, Installation, Usage, License, Contributing, Tests, GitHub, email, Questions }) {
+
     var badge = licenseBadge(License);  //calls the licenseBadge function and gets the badge of the license passed in the parameters
-    console.log(badge);
 
     return `
 ${badge}
 
 # ${title}
-
-
-
-
 
 ## Description
 ${description}
@@ -141,6 +146,9 @@ ${Contributing}
 ${Tests}
 
 ## Questions
+link to GitHub: ${GitHub}
+link to email: ${email}
+
 ${Questions}
 `
 }
