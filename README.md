@@ -5,6 +5,8 @@ You can quickly and easily create a README file by using a command-line applicat
 ## Description
 The goal of this application is to allow users to create a readme file through the terminal. creating a readme file and filling the required contents can be very time consuming. This application creates a template, and all the user has to do is fill out the content. 
 
+link to video: https://drive.google.com/file/d/1U_wvOz0pAMwvwsnzR22-Qldj0zUdtPhI/view
+
 ## Installation
 -node js
 - inquirer
